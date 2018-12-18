@@ -33,7 +33,7 @@ SignalHub.prototype.subscribe = function (channel) {
   var self = this
   var endpoint = Array.isArray(channel) ? channel.join(',') : channel
   var streams = this.urls.map(function (url) {
-    return ess(url + '/v1/' + self.app + '/' + endpoint, {json: true})
+    return ess(url + '/v1/' + self.app + '/' + endpoint, { json: true })
   })
 
   var subscriber

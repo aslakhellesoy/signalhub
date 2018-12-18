@@ -23,7 +23,7 @@ module.exports = function (opts) {
 
   var get = function (channel) {
     if (channels[channel]) return channels[channel]
-    var sub = {name: channel, subscribers: [], heartbeat: null}
+    var sub = { name: channel, subscribers: [], heartbeat: null }
     sub.heartbeat = setInterval(heartbeater(sub), 30 * 1000)
     channels[channel] = sub
     return channels[channel]
@@ -39,7 +39,7 @@ module.exports = function (opts) {
     res.setHeader('Content-Type', 'application/json; charset=utf-8')
     if (req.url === '/') {
       flushHeaders(res)
-      res.end(JSON.stringify({name: 'signalhub', version: require('./package').version, subscribers: subs}, null, 2) + '\n')
+      res.end(JSON.stringify({ name: 'signalhub', version: require('./package').version, subscribers: subs }, null, 2) + '\n')
       return
     }
 
